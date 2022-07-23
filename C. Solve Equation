@@ -1,0 +1,32 @@
+//linkproblem:https://codeforces.com/group/c3FDl9EUi9/contest/264941/problem/C
+//Link Sheet:https://codeforces.com/group/c3FDl9EUi9/contests
+#include<iostream>
+#include<stack>
+#include<cmath>
+#include<algorithm>
+#include<set>
+#include<iomanip>
+using namespace std;
+#define ll long long
+#define ld long double
+int main()
+{
+
+ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+ld n, time;
+    cin >> n >> time;
+    ld l = 0, r =2e18, mid = 0, ans = 0;
+    while(r-l>=1e-6) {
+        mid = (l + r) / 2;
+        if (n * mid * log2(mid) <= time) {
+            ans = mid;
+            l = mid ;
+        }
+        else {
+            r = mid ;
+        }
+    }
+     
+    cout <<fixed<< setprecision(6) << ans << endl;
+    return 0;
+}
