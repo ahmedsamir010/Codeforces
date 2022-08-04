@@ -1,0 +1,57 @@
+//Linl Problem:https://codeforces.com/problemset/problem/1208/B
+#include<iostream>
+#include<stack>
+#include<cmath>
+#include<string>
+#include<algorithm>
+#include<queue>
+#include<vector>
+#include<sstream>
+#include<numeric>
+#include <unordered_map>
+#include<map>
+#include<set>
+#include<iomanip>
+#include<utility>
+#include<stack>
+#include<unordered_set>
+using namespace std;
+#define ahmed ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+#define ll long long
+#define ld long double
+#define T ll Tests; cin >> Tests; while(Tests--)
+#define all(v) v.begin(),v.end()
+#define cin(vec) for(auto& i : vec) cin >> i
+#define cout(vec) for(auto i : vec) cout<< i<<" ";
+#define cy cout<<"YES"<<endl
+#define cn cout<<"NO"<<endl
+int main()
+{
+    ahmed
+        ll n, ans = 0;
+    cin >> n;
+    vector<ll>x(n);
+    cin(x);
+    for (ll i = 0; i <= n; i++) {
+        set<int>se;
+        for (int j = 0; j < i; j++) {
+            if (se.find(x[j]) != se.end()) break;
+            se.emplace(x[j]);
+        }
+        for (int j = n - 1; j >= i; j--) {
+            if (se.find(x[j]) != se.end()) break;
+            se.emplace(x[j]);
+        }
+        ans = max(ans,(ll)se.size());
+    }
+    cout << n - ans;
+    return 0;
+}
+//اقراء السوال كويس جدا قبل التفكير في الحل
+//جرب فكرتك على كل التيستات الي قدامك و الكورنر كيس
+//جبت رونج اقراء السوال تاني و تاكد من فهمك له
+//جبت رونج تاني حاول تتاكد من ان فكرتك سليمه او تغيرها
+  
+
+
+ 
